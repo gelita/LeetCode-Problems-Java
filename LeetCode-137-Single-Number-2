@@ -1,0 +1,52 @@
+class Solution {
+    public int singleNumber(int[] nums){
+        Arrays.sort(nums);
+        for(int i = 0; i< nums.length; i = i+3){
+            if(i < nums.length-2 && nums[i] == nums[i+2]){
+                continue;
+            }
+        return nums[i];
+        }
+        return nums[nums.length-1];
+    }
+}       
+ /* my first two attempts before deciding to sort and then iterate as above */  
+/*
+   public int singleNumber(int[] nums) {
+        int len = nums.length;
+        Arrays.sort(nums);
+        for(int i = 0; i< len; i = i+3){
+            if(i < len -2 && nums[i] == nums[i+1] && nums[i] == nums[i+2]){
+                continue;
+            }else{
+                return nums[i];
+            }
+        }
+        return nums[len-1];
+    }
+} 
+*/
+    
+   /* 
+    public int singleNumber(int[] nums) {
+	    if(nums.length == 1){
+		    return nums[0];
+        }       
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i< nums.length; i++){
+            if(map.containsKey(nums[i])){
+                map.get(nums[i]);
+                if(map.get(nums[i]) == 1){
+                    map.put(nums[i],2);
+                }else{
+                    map.remove(nums[i]);
+                }      
+            }else{
+                map.put(nums[i],1);
+            }
+        } 
+        List<Integer> key = new ArrayList<>(map.keySet()); 
+        return key.get(0);
+        }
+}
+*/
