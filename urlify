@@ -1,0 +1,24 @@
+import java.io.*;
+
+class MyCode {
+	public static void main(String[] args) {
+    //example given
+    String str = "My John Smith     ";
+    int n = 13;
+    System.out.println(urlify(str, n));
+	}
+  
+  public static String urlify(String s, int len){
+    s = s.trim();
+    char[] arr = s.toCharArray();
+    StringBuilder sb = new StringBuilder();
+    for(int i = 0; i< arr.length; i++){
+      if(arr[i] == ' '){
+        sb.append("%20");        
+      }else{
+        sb.append(arr[i]);
+      }
+    }
+    return sb.toString();    
+  }
+}
